@@ -12,7 +12,8 @@
         body{background:var(--dark);color:var(--light);font-family:'Inter',sans-serif;line-height:1.7}
         header{background:rgba(10,10,10,.99);border-bottom:3px solid var(--primary);padding:1.2rem 2rem;position:sticky;top:0;z-index:1000;box-shadow:0 4px 20px rgba(204,255,0,.1)}
         .header-content{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
-        .logo{font-family:'Poppins',sans-serif;font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,var(--light) 0%,var(--primary) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none}
+        .logo{display:flex;align-items:center;gap:.5rem;text-decoration:none}
+        .logo svg{height:35px;width:auto}
         .nav-links{display:flex;gap:2.5rem;align-items:center}
         .nav-links a{color:var(--light);text-decoration:none;font-size:.95rem;font-weight:500;transition:.3s}
         .nav-links a:hover{color:var(--primary)}
@@ -99,7 +100,16 @@
 <body>
     <header>
         <div class="header-content">
-            <a href="#" class="logo">SWITCH UP</a>
+            <a href="#" class="logo">
+                <svg viewBox="0 0 300 60" xmlns="http://www.w3.org/2000/svg">
+                    <text x="10" y="45" font-family="Poppins, sans-serif" font-size="48" font-weight="800" fill="white" letter-spacing="2">SWITCH</text>
+                    <text x="200" y="45" font-family="Poppins, sans-serif" font-size="48" font-weight="800" fill="white">UP</text>
+                    <g transform="translate(220, 15)">
+                        <polygon points="15,25 10,10 20,10" fill="#CCFF00"/>
+                        <line x1="15" y1="10" x2="15" y2="25" stroke="#CCFF00" stroke-width="2"/>
+                    </g>
+                </svg>
+            </a>
             <nav class="nav-links">
                 <a href="#problem">Il Problema</a>
                 <a href="#solution">La Soluzione</a>
