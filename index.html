@@ -28,6 +28,12 @@
         .hero-subtitle{font-size:1.25rem;color:var(--gray-light);margin-bottom:2.5rem;font-weight:400;line-height:1.6}
         .cta-primary{display:inline-block;padding:1.1rem 3rem;background:var(--primary);color:var(--text);text-decoration:none;border-radius:6px;font-weight:700;font-size:1rem;transition:.3s;box-shadow:0 8px 25px rgba(204,255,0,.25)}
         .cta-primary:hover{transform:translateY(-3px);box-shadow:0 15px 45px rgba(204,255,0,.4)}
+        @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+        @keyframes fadeOut{from{opacity:1}to{opacity:0}}
+        @keyframes glow{0%,100%{filter:drop-shadow(0 0 10px rgba(204,255,0,0.5))}50%{filter:drop-shadow(0 0 30px rgba(204,255,0,1))}}
+        .intro-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:var(--dark);display:flex;align-items:center;justify-content:center;z-index:9999;animation:fadeIn 0.8s ease-in;backdrop-filter:blur(10px)}
+        .intro-overlay.fade-out{animation:fadeOut 1s ease-out forwards}
+        .intro-logo{width:300px;height:auto;animation:glow 2s ease-in-out infinite}
         section{max-width:1400px;margin:0 auto;padding:5rem 2rem}
         h2{font-family:'Poppins',sans-serif;font-size:2.8rem;font-weight:800;margin-bottom:1rem;color:var(--light);letter-spacing:-.5px}
         .section-desc{font-size:1.1rem;color:var(--gray-light);margin-bottom:3.5rem;max-width:700px;line-height:1.7}
@@ -101,6 +107,9 @@
     </style>
 </head>
 <body>
+    <div class="intro-overlay" id="intro">
+        <img src="images/logo-switchup.png" alt="SWITCH UP" class="intro-logo">
+    </div>
     <header>
         <div class="header-content">
             <a href="#" class="logo">
@@ -343,6 +352,15 @@
         prevBtn.addEventListener('click', prevSlide);
         nextBtn.addEventListener('click', nextSlide);
         showSlide(0);
+
+        // Intro animation
+        const introOverlay = document.getElementById('intro');
+        setTimeout(() => {
+            introOverlay.classList.add('fade-out');
+            setTimeout(() => {
+                introOverlay.style.display = 'none';
+            }, 1000);
+        }, 3000);
     </script>
 </body>
 </html>
