@@ -76,6 +76,9 @@
         .slide-image{width:100%;height:300px;background:linear-gradient(135deg,rgba(204,255,0,.1) 0%,rgba(204,255,0,.02) 100%);border-radius:8px;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center;color:var(--primary);font-size:3rem}
         .slide-title{color:var(--primary);font-size:1.4rem;margin-bottom:.8rem;font-weight:700;font-family:'Poppins',sans-serif}
         .slide-desc{color:var(--gray-light);font-size:.95rem;line-height:1.7}
+        .carousel-container{position:relative;width:100%;max-width:900px;height:auto;margin:0 auto}
+        .carousel-slide{display:none;width:100%;opacity:0;transition:opacity 0.5s linear;background:rgba(0,0,0,.7);border:2px solid var(--primary);border-radius:12px;padding:2rem;text-align:center}
+        .carousel-slide.active{display:block;opacity:1}
         .partners-section{background:linear-gradient(135deg,rgba(204,255,0,.08) 0%,rgba(204,255,0,.02) 100%);border-top:3px solid var(--primary)}
         .partners-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:2.5rem;margin-top:3rem}
         .partner-card{background:rgba(20,24,32,.8);border:2px solid var(--primary);border-radius:12px;overflow:hidden;transition:.4s}
@@ -209,13 +212,40 @@
         <h2>Esempi Reali di Team Vincenti</h2>
         <p class="section-desc">Vedi come altri team nel motorsport hanno già fatto il passo e adesso attirano sponsor professionali.</p>
         <div class="carousel-wrapper">
-            <button class="carousel-btn">‹</button>
-            <div class="carousel-slide">
-                <div class="slide-image"><i class="fas fa-motorcycle"></i></div>
-                <div class="slide-title">Andrea Bettin Racing</div>
-                <p class="slide-desc">"Il sito ha trasformato come i brand mi vedono. Non sono più invisibile. Sono un'opportunità di visibilità per gli sponsor."</p>
+            <button class="carousel-btn" id="prev-btn">‹</button>
+            <div class="carousel-container">
+                <a class="carousel-slide active" href="https://www.adattivia.it" target="_blank" style="text-decoration:none">
+                    <div style="width:100%;height:300px;background:linear-gradient(135deg,rgba(204,255,0,.1),rgba(204,255,0,.02));border-radius:8px;background-image:url('images/adattivia-screenshot.png');background-repeat:no-repeat;background-position:center top;background-size:cover;margin-bottom:1.5rem"></div>
+                    <div style="color:var(--primary);font-weight:700;font-size:0.9rem;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:1rem">Agenzia</div>
+                    <div style="color:var(--light);font-size:1.3rem;font-weight:700;margin-bottom:0.5rem">Adattivia</div>
+                    <p style="color:var(--gray-light);font-size:0.95rem">Sito professionale con portfolio, servizi e sezione blog integrata.</p>
+                </a>
+                <a class="carousel-slide" href="https://www.teamhero.it" target="_blank" style="text-decoration:none">
+                    <div style="width:100%;height:300px;background:linear-gradient(135deg,rgba(204,255,0,.1),rgba(204,255,0,.02));border-radius:8px;background-image:url('images/teamhero-screenshot.png');background-repeat:no-repeat;background-position:center top;background-size:cover;margin-bottom:1.5rem"></div>
+                    <div style="color:var(--primary);font-weight:700;font-size:0.9rem;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:1rem">Team</div>
+                    <div style="color:var(--light);font-size:1.3rem;font-weight:700;margin-bottom:0.5rem">TeamHero</div>
+                    <p style="color:var(--gray-light);font-size:0.95rem">Piattaforma collaborativa con dashboard, team management e analytics.</p>
+                </a>
+                <a class="carousel-slide" href="https://es.ayuniko.shop" target="_blank" style="text-decoration:none">
+                    <div style="width:100%;height:300px;background:linear-gradient(135deg,rgba(204,255,0,.1),rgba(204,255,0,.02));border-radius:8px;background-image:url('images/ayuniko-screenshot.png');background-repeat:no-repeat;background-position:center top;background-size:cover;margin-bottom:1.5rem"></div>
+                    <div style="color:var(--primary);font-weight:700;font-size:0.9rem;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:1rem">E-commerce</div>
+                    <div style="color:var(--light);font-size:1.3rem;font-weight:700;margin-bottom:0.5rem">Ayuniko Shop</div>
+                    <p style="color:var(--gray-light);font-size:0.95rem">Negozio online con catalogo prodotti, carrello e sistema di pagamento.</p>
+                </a>
+                <a class="carousel-slide" href="https://ab39.it" target="_blank" style="text-decoration:none">
+                    <div style="width:100%;height:300px;background:linear-gradient(135deg,rgba(204,255,0,.1),rgba(204,255,0,.02));border-radius:8px;background-image:url('images/ab39-screenshot.png');background-repeat:no-repeat;background-position:center top;background-size:cover;margin-bottom:1.5rem"></div>
+                    <div style="color:var(--primary);font-weight:700;font-size:0.9rem;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:1rem">Pilota · Moto</div>
+                    <div style="color:var(--light);font-size:1.3rem;font-weight:700;margin-bottom:0.5rem">Andrea Bettin · Nº 39</div>
+                    <p style="color:var(--gray-light);font-size:0.95rem">Sito in tre lingue con trailer d'ingresso, schede delle gare e pagine per gli sponsor.</p>
+                </a>
+                <a class="carousel-slide" href="https://sito-ridinflow.vercel.app" target="_blank" style="text-decoration:none">
+                    <div style="width:100%;height:300px;background:linear-gradient(135deg,rgba(204,255,0,.1),rgba(204,255,0,.02));border-radius:8px;background-image:url('images/ridinflow-screenshot.png');background-repeat:no-repeat;background-position:center top;background-size:cover;margin-bottom:1.5rem"></div>
+                    <div style="color:var(--primary);font-weight:700;font-size:0.9rem;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:1rem">Scuola Guida</div>
+                    <div style="color:var(--light);font-size:1.3rem;font-weight:700;margin-bottom:0.5rem">RidinFlow</div>
+                    <p style="color:var(--gray-light);font-size:0.95rem">Corsi, circuiti, domande frequenti e modulo di iscrizione con WhatsApp.</p>
+                </a>
             </div>
-            <button class="carousel-btn">›</button>
+            <button class="carousel-btn" id="next-btn">›</button>
         </div>
     </section>
 
@@ -309,5 +339,28 @@
         </div>
         <p style="margin-top:2.5rem;font-size:.85rem;color:#999">© 2026 SWITCH UP. Costruito con metodo, strategie professionali e visione del motorsport.</p>
     </footer>
+    <script>
+        const slides = document.querySelectorAll('.carousel-slide');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        let currentSlide = 0;
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+            currentSlide = index;
+        }
+        function nextSlide() {
+            const next = (currentSlide + 1) % slides.length;
+            showSlide(next);
+        }
+        function prevSlide() {
+            const prev = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(prev);
+        }
+        prevBtn.addEventListener('click', prevSlide);
+        nextBtn.addEventListener('click', nextSlide);
+        showSlide(0);
+    </script>
 </body>
 </html>
