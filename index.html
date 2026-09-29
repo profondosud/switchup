@@ -36,11 +36,14 @@
         .intro-overlay{position:fixed;inset:0;background:#000;display:flex;align-items:center;justify-content:center;z-index:9999;overflow:hidden;animation:fadeIn .7s ease-out both}
         .intro-overlay.fade-out{animation:fadeOut 1.1s cubic-bezier(.6,0,.4,1) forwards}
         .intro-stage{position:relative;width:min(90vw,1120px);aspect-ratio:4/1;isolation:isolate}
-        .intro-stage::before{content:"";position:absolute;z-index:3;top:50%;left:-22%;width:20%;height:140%;transform:translateY(-50%);background:linear-gradient(90deg,transparent,rgba(184,255,0,.25),rgba(255,255,255,.95),rgba(184,255,0,.5),transparent);filter:blur(9px);opacity:0;pointer-events:none;animation:intro-sweep 1.35s ease-in 1.65s both}
-        .intro-stage::after{content:"";position:absolute;z-index:2;left:85%;top:26%;width:clamp(58px,11vw,132px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(184,255,0,.72) 0,rgba(184,255,0,.28) 32%,transparent 72%);filter:blur(12px);opacity:0;pointer-events:none;animation:arrow-light 1.1s ease-out 2.9s forwards}
-        .intro-logo{position:relative;z-index:1;display:block;width:100%;height:100%;object-fit:cover;object-position:50% 51%;filter:invert(1) saturate(15) hue-rotate(166deg) brightness(.75);clip-path:inset(0 100% 0 0);animation:logo-write 2.65s cubic-bezier(.72,0,.16,1) .25s forwards}
+        .intro-filters{position:absolute;width:0;height:0;overflow:hidden}
+        .intro-stage::before{content:"";position:absolute;z-index:4;top:50%;left:-22%;width:20%;height:140%;transform:translateY(-50%);background:linear-gradient(90deg,transparent,rgba(184,255,0,.25),rgba(255,255,255,.95),rgba(184,255,0,.5),transparent);filter:blur(9px);opacity:0;pointer-events:none;animation:intro-sweep 1.35s ease-in 1.65s both}
+        .intro-stage::after{content:"";position:absolute;z-index:3;left:85%;top:26%;width:clamp(58px,11vw,132px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(184,255,0,.72) 0,rgba(184,255,0,.28) 32%,transparent 72%);filter:blur(12px);opacity:0;pointer-events:none;animation:arrow-light 1.1s ease-out 2.9s forwards}
+        .intro-logo,.intro-logo-green{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 51%;clip-path:inset(0 100% 0 0);animation:logo-write 2.65s cubic-bezier(.72,0,.16,1) .25s forwards}
+        .intro-logo{position:relative;z-index:1;filter:invert(1)}
+        .intro-logo-green{position:absolute;inset:0;z-index:2;filter:url(#intro-green-extract) drop-shadow(0 0 14px rgba(184,255,0,.38));pointer-events:none}
         @media(max-width:600px){.intro-stage{width:94vw;aspect-ratio:3.5/1}.intro-logo{object-position:50% 51%}}
-        @media(prefers-reduced-motion:reduce){.intro-logo{animation:none;clip-path:none;transform:none}.intro-stage::before{display:none}.intro-stage::after{animation:none;opacity:.65}.intro-overlay{animation:none}}
+        @media(prefers-reduced-motion:reduce){.intro-logo,.intro-logo-green{animation:none;clip-path:none;transform:none}.intro-stage::before{display:none}.intro-stage::after{animation:none;opacity:.65}.intro-overlay{animation:none}}
         section{max-width:1400px;margin:0 auto;padding:5rem 2rem}
         h2{font-family:'Barlow Condensed',sans-serif;font-size:2.8rem;font-weight:800;margin-bottom:1rem;color:var(--light);letter-spacing:-.5px}
         .section-desc{font-size:1.1rem;color:var(--gray-light);margin-bottom:3.5rem;max-width:700px;line-height:1.7}
@@ -170,9 +173,16 @@
     </style>
 </head>
 <body>
+    <svg class="intro-filters" aria-hidden="true" focusable="false">
+        <filter id="intro-green-extract" color-interpolation-filters="sRGB">
+            <feColorMatrix type="matrix" values="0 0 0 0 .72  0 0 0 0 1  0 0 0 0 0  -4 4 0 0 0" />
+        </filter>
+    </svg>
+    
     <div class="intro-overlay" id="intro" aria-label="SWITCH UP">
         <div class="intro-stage">
             <img src="images/switchup-business-card.png" alt="SWITCH UP — SPORT • VISIBILITY • GROWTH" class="intro-logo">
+            <img src="images/switchup-business-card.png" alt="" aria-hidden="true" class="intro-logo-green">
         </div>
     </div>
     <header>
